@@ -1,0 +1,29 @@
+version: '3.8'
+networks:
+  WebNetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.8.32/29
+services:
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+      - 8081:80  
+    networks:
+      WebNetwork:
+        ipv4_address: 192.168.8.35
+  web:
+    build: .
+    container_name: web-web
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./web:/web
+    networks:
+      WebNetwork:
+        ipv4_address: 192.168.8.36
+    

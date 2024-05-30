@@ -1,0 +1,8 @@
+# Mengabaikan semua file kecuali yang spesifik
+
+*
+!/.gitignore
+!/web/config/conf.d/web.conf
+!/docker-compose.yml
+!/ReadMe.txt
+!/Dockerfile
